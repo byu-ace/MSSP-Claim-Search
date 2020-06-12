@@ -1,0 +1,433 @@
+﻿@model MSSP_Claim_Search.Models.Claims_Headers
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Claims_Headers</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SUBSCRIBER_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SUBSCRIBER_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CLAIM_NUMBER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLAIM_NUMBER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CATEGORY_OF_SVC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CATEGORY_OF_SVC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PAT_CONTROL_NO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PAT_CONTROL_NO)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ICD_PRIM_DIAG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ICD_PRIM_DIAG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRIMARY_SVC_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRIMARY_SVC_DATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SVC_TO_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SVC_TO_DATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CLAIM_THRU_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLAIM_THRU_DATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.POST_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.POST_DATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CHECK_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHECK_DATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CHECK_NUMBER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CHECK_NUMBER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_RECEIVED)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_RECEIVED)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ADJUD_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ADJUD_DATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CMS_CertificationNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CMS_CertificationNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SVC_PROV_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SVC_PROV_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SVC_PROV_FULL_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SVC_PROV_FULL_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SVC_PROV_NPI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SVC_PROV_NPI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROV_SPEC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROV_SPEC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROV_TYPE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROV_TYPE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROVIDER_PAR_STAT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROVIDER_PAR_STAT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ATT_PROV_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ATT_PROV_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ATT_PROV_FULL_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ATT_PROV_FULL_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ATT_PROV_NPI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ATT_PROV_NPI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REF_PROV_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REF_PROV_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.REF_PROV_FULL_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.REF_PROV_FULL_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VENDOR_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VENDOR_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VEND_FULL_NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VEND_FULL_NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IRS_TAX_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IRS_TAX_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DRG_CODE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DRG_CODE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BILL_TYPE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BILL_TYPE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ADMISSION_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ADMISSION_DATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AUTH_NUMBER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AUTH_NUMBER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ADMIT_SOURCE_CODE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ADMIT_SOURCE_CODE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ADMIT_HOUR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ADMIT_HOUR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DISCHARGE_HOUR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DISCHARGE_HOUR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PATIENT_STATUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PATIENT_STATUS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CLAIM_STATUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLAIM_STATUS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PROCESSING_STATUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PROCESSING_STATUS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CLAIM_TYPE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLAIM_TYPE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TOTAL_BILLED_AMT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TOTAL_BILLED_AMT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TOTAL_PAID_AMT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TOTAL_PAID_AMT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SrcAdiTableName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SrcAdiTableName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SrcAdiKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SrcAdiKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoadDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoadDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdatedDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdatedDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastUpdatedBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastUpdatedBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CalcdTotalBilledAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CalcdTotalBilledAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BENE_PTNT_STUS_CD)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BENE_PTNT_STUS_CD)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DISCHARGE_DISPO)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DISCHARGE_DISPO)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

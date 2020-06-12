@@ -1,0 +1,627 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ACDW_CLMS_SHCN_MSSPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Claims_Details">
+          <Key>
+            <PropertyRef Name="ClaimsDetailsKey" />
+          </Key>
+          <Property Name="ClaimsDetailsKey" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CLAIM_NUMBER" Type="varchar" MaxLength="50" />
+          <Property Name="SUBSCRIBER_ID" Type="varchar" MaxLength="50" />
+          <Property Name="SEQ_CLAIM_ID" Type="varchar" MaxLength="50" />
+          <Property Name="LINE_NUMBER" Type="smallint" />
+          <Property Name="SUB_LINE_CODE" Type="varchar" MaxLength="50" />
+          <Property Name="DETAIL_SVC_DATE" Type="date" />
+          <Property Name="SVC_TO_DATE" Type="date" />
+          <Property Name="PROCEDURE_CODE" Type="varchar" MaxLength="50" />
+          <Property Name="MODIFIER_CODE_1" Type="varchar" MaxLength="20" />
+          <Property Name="MODIFIER_CODE_2" Type="varchar" MaxLength="20" />
+          <Property Name="MODIFIER_CODE_3" Type="varchar" MaxLength="20" />
+          <Property Name="MODIFIER_CODE_4" Type="varchar" MaxLength="20" />
+          <Property Name="REVENUE_CODE" Type="smallint" />
+          <Property Name="PLACE_OF_SVC_CODE1" Type="varchar" MaxLength="10" />
+          <Property Name="PLACE_OF_SVC_CODE2" Type="varchar" MaxLength="10" />
+          <Property Name="PLACE_OF_SVC_CODE3" Type="varchar" MaxLength="10" />
+          <Property Name="QUANTITY" Type="numeric" Precision="12" Scale="2" />
+          <Property Name="BILLED_AMT" Type="money" />
+          <Property Name="PAID_AMT" Type="money" />
+          <Property Name="NDC_CODE" Type="varchar" MaxLength="20" />
+          <Property Name="RX_GENERIC_BRAND_IND" Type="varchar" MaxLength="50" />
+          <Property Name="RX_SUPPLY_DAYS" Type="varchar" MaxLength="50" />
+          <Property Name="RX_DISPENSING_FEE_AMT" Type="money" />
+          <Property Name="RX_INGREDIENT_AMT" Type="money" />
+          <Property Name="RX_FORMULARY_IND" Type="varchar" MaxLength="50" />
+          <Property Name="RX_DATE_PRESCRIPTION_WRITTEN" Type="date" />
+          <Property Name="RX_DATE_PRESCRIPTION_FILLED" Type="date" />
+          <Property Name="PRESCRIBING_PROV_TYPE_ID" Type="varchar" MaxLength="10" />
+          <Property Name="PRESCRIBING_PROV_ID" Type="varchar" MaxLength="20" />
+          <Property Name="BRAND_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="DRUG_STRENGTH_DESC" Type="varchar" MaxLength="50" />
+          <Property Name="GPI" Type="varchar" MaxLength="50" />
+          <Property Name="GPI_DESC" Type="varchar" MaxLength="50" />
+          <Property Name="CONTROLLED_DRUG_IND" Type="varchar" MaxLength="50" />
+          <Property Name="COMPOUND_CODE" Type="varchar" MaxLength="50" />
+          <Property Name="SrcAdiTableName" Type="varchar" MaxLength="100" />
+          <Property Name="SrcAdiKey" Type="int" Nullable="false" />
+          <Property Name="LoadDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Claims_Diags">
+          <Key>
+            <PropertyRef Name="URN" />
+          </Key>
+          <Property Name="URN" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SEQ_CLAIM_ID" Type="varchar" MaxLength="50" />
+          <Property Name="SUBSCRIBER_ID" Type="varchar" MaxLength="50" />
+          <Property Name="ICD_FLAG" Type="char" MaxLength="2" />
+          <Property Name="diagNumber" Type="smallint" />
+          <Property Name="diagCode" Type="varchar" MaxLength="20" />
+          <Property Name="diagCodeWithoutDot" Type="varchar" MaxLength="20" />
+          <Property Name="diagPoa" Type="varchar" MaxLength="20" />
+          <Property Name="LoadDate" Type="datetime" Nullable="false" />
+          <Property Name="SrcAdiTableName" Type="varchar" MaxLength="100" />
+          <Property Name="SrcAdiKey" Type="int" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Claims_Headers">
+          <Key>
+            <PropertyRef Name="SEQ_CLAIM_ID" />
+          </Key>
+          <Property Name="SEQ_CLAIM_ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SUBSCRIBER_ID" Type="varchar" MaxLength="50" />
+          <Property Name="CLAIM_NUMBER" Type="varchar" MaxLength="50" />
+          <Property Name="CATEGORY_OF_SVC" Type="varchar" MaxLength="50" />
+          <Property Name="PAT_CONTROL_NO" Type="varchar" MaxLength="50" />
+          <Property Name="ICD_PRIM_DIAG" Type="varchar" MaxLength="10" />
+          <Property Name="PRIMARY_SVC_DATE" Type="date" />
+          <Property Name="SVC_TO_DATE" Type="date" />
+          <Property Name="CLAIM_THRU_DATE" Type="date" />
+          <Property Name="POST_DATE" Type="datetime" />
+          <Property Name="CHECK_DATE" Type="datetime" />
+          <Property Name="CHECK_NUMBER" Type="varchar" MaxLength="20" />
+          <Property Name="DATE_RECEIVED" Type="datetime" />
+          <Property Name="ADJUD_DATE" Type="datetime" />
+          <Property Name="CMS_CertificationNumber" Type="varchar" MaxLength="12" />
+          <Property Name="SVC_PROV_ID" Type="varchar" MaxLength="20" />
+          <Property Name="SVC_PROV_FULL_NAME" Type="varchar" MaxLength="250" />
+          <Property Name="SVC_PROV_NPI" Type="varchar" MaxLength="20" />
+          <Property Name="PROV_SPEC" Type="varchar" MaxLength="20" />
+          <Property Name="PROV_TYPE" Type="varchar" MaxLength="20" />
+          <Property Name="PROVIDER_PAR_STAT" Type="varchar" MaxLength="20" />
+          <Property Name="ATT_PROV_ID" Type="varchar" MaxLength="50" />
+          <Property Name="ATT_PROV_FULL_NAME" Type="varchar" MaxLength="250" />
+          <Property Name="ATT_PROV_NPI" Type="varchar" MaxLength="20" />
+          <Property Name="REF_PROV_ID" Type="varchar" MaxLength="20" />
+          <Property Name="REF_PROV_FULL_NAME" Type="varchar" MaxLength="250" />
+          <Property Name="VENDOR_ID" Type="varchar" MaxLength="20" />
+          <Property Name="VEND_FULL_NAME" Type="varchar" MaxLength="250" />
+          <Property Name="IRS_TAX_ID" Type="varchar" MaxLength="20" />
+          <Property Name="DRG_CODE" Type="varchar" MaxLength="20" />
+          <Property Name="BILL_TYPE" Type="varchar" MaxLength="20" />
+          <Property Name="ADMISSION_DATE" Type="date" />
+          <Property Name="AUTH_NUMBER" Type="varchar" MaxLength="50" />
+          <Property Name="ADMIT_SOURCE_CODE" Type="varchar" MaxLength="20" />
+          <Property Name="ADMIT_HOUR" Type="varchar" MaxLength="20" />
+          <Property Name="DISCHARGE_HOUR" Type="varchar" MaxLength="20" />
+          <Property Name="PATIENT_STATUS" Type="varchar" MaxLength="20" />
+          <Property Name="CLAIM_STATUS" Type="varchar" MaxLength="20" />
+          <Property Name="PROCESSING_STATUS" Type="varchar" MaxLength="20" />
+          <Property Name="CLAIM_TYPE" Type="varchar" MaxLength="20" />
+          <Property Name="TOTAL_BILLED_AMT" Type="money" />
+          <Property Name="TOTAL_PAID_AMT" Type="money" />
+          <Property Name="SrcAdiTableName" Type="varchar" MaxLength="100" />
+          <Property Name="SrcAdiKey" Type="int" Nullable="false" />
+          <Property Name="LoadDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CalcdTotalBilledAmount" Type="money" />
+          <Property Name="BENE_PTNT_STUS_CD" Type="int" />
+          <Property Name="DISCHARGE_DISPO" Type="int" />
+        </EntityType>
+        <Function Name="sp_Get_ClaimDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="adw">
+          <Parameter Name="ClientMemberKey" Type="varchar" Mode="In" />
+          <Parameter Name="SeqClaimID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_Get_ClaimDiags" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="adw">
+          <Parameter Name="ClientMemberKey" Type="varchar" Mode="In" />
+          <Parameter Name="SeqClaimID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_Get_ClaimHeader" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="adw">
+          <Parameter Name="ClientMemberKey" Type="varchar" Mode="In" />
+          <Parameter Name="SeqClaimID" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="sp_Get_ClaimPharmacy" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="adw">
+          <Parameter Name="ClientMemberKey" Type="varchar" Mode="In" />
+          <Parameter Name="SeqClaimID" Type="varchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="ACDW_CLMS_SHCN_MSSPModelStoreContainer">
+          <EntitySet Name="Claims_Details" EntityType="Self.Claims_Details" Schema="adw" store:Type="Tables" />
+          <EntitySet Name="Claims_Diags" EntityType="Self.Claims_Diags" Schema="adw" store:Type="Tables" />
+          <EntitySet Name="Claims_Headers" EntityType="Self.Claims_Headers" Schema="adw" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ACDW_CLMS_SHCN_MSSPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Claims_Details">
+          <Key>
+            <PropertyRef Name="ClaimsDetailsKey" />
+          </Key>
+          <Property Name="ClaimsDetailsKey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CLAIM_NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SUBSCRIBER_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SEQ_CLAIM_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LINE_NUMBER" Type="Int16" />
+          <Property Name="SUB_LINE_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DETAIL_SVC_DATE" Type="DateTime" Precision="0" />
+          <Property Name="SVC_TO_DATE" Type="DateTime" Precision="0" />
+          <Property Name="PROCEDURE_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MODIFIER_CODE_1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MODIFIER_CODE_2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MODIFIER_CODE_3" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MODIFIER_CODE_4" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="REVENUE_CODE" Type="Int16" />
+          <Property Name="PLACE_OF_SVC_CODE1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PLACE_OF_SVC_CODE2" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PLACE_OF_SVC_CODE3" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="QUANTITY" Type="Decimal" Precision="12" Scale="2" />
+          <Property Name="BILLED_AMT" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="PAID_AMT" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="NDC_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RX_GENERIC_BRAND_IND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RX_SUPPLY_DAYS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RX_DISPENSING_FEE_AMT" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="RX_INGREDIENT_AMT" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="RX_FORMULARY_IND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RX_DATE_PRESCRIPTION_WRITTEN" Type="DateTime" Precision="0" />
+          <Property Name="RX_DATE_PRESCRIPTION_FILLED" Type="DateTime" Precision="0" />
+          <Property Name="PRESCRIBING_PROV_TYPE_ID" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PRESCRIBING_PROV_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BRAND_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DRUG_STRENGTH_DESC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GPI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GPI_DESC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CONTROLLED_DRUG_IND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="COMPOUND_CODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SrcAdiTableName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SrcAdiKey" Type="Int32" Nullable="false" />
+          <Property Name="LoadDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Claims_Diags">
+          <Key>
+            <PropertyRef Name="URN" />
+          </Key>
+          <Property Name="URN" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SEQ_CLAIM_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SUBSCRIBER_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ICD_FLAG" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="diagNumber" Type="Int16" />
+          <Property Name="diagCode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="diagCodeWithoutDot" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="diagPoa" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="LoadDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SrcAdiTableName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SrcAdiKey" Type="Int32" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Claims_Headers">
+          <Key>
+            <PropertyRef Name="SEQ_CLAIM_ID" />
+          </Key>
+          <Property Name="SEQ_CLAIM_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SUBSCRIBER_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CLAIM_NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CATEGORY_OF_SVC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PAT_CONTROL_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ICD_PRIM_DIAG" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PRIMARY_SVC_DATE" Type="DateTime" Precision="0" />
+          <Property Name="SVC_TO_DATE" Type="DateTime" Precision="0" />
+          <Property Name="CLAIM_THRU_DATE" Type="DateTime" Precision="0" />
+          <Property Name="POST_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CHECK_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CHECK_NUMBER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DATE_RECEIVED" Type="DateTime" Precision="3" />
+          <Property Name="ADJUD_DATE" Type="DateTime" Precision="3" />
+          <Property Name="CMS_CertificationNumber" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="SVC_PROV_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="SVC_PROV_FULL_NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="SVC_PROV_NPI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PROV_SPEC" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PROV_TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PROVIDER_PAR_STAT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ATT_PROV_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ATT_PROV_FULL_NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ATT_PROV_NPI" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="REF_PROV_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="REF_PROV_FULL_NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="VENDOR_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="VEND_FULL_NAME" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="IRS_TAX_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DRG_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="BILL_TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ADMISSION_DATE" Type="DateTime" Precision="0" />
+          <Property Name="AUTH_NUMBER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ADMIT_SOURCE_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ADMIT_HOUR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DISCHARGE_HOUR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PATIENT_STATUS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CLAIM_STATUS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PROCESSING_STATUS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CLAIM_TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="TOTAL_BILLED_AMT" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="TOTAL_PAID_AMT" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="SrcAdiTableName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SrcAdiKey" Type="Int32" Nullable="false" />
+          <Property Name="LoadDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CalcdTotalBilledAmount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="BENE_PTNT_STUS_CD" Type="Int32" />
+          <Property Name="DISCHARGE_DISPO" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="ACDW_CLMS_SHCN_MSSPEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Claims_Details" EntityType="Self.Claims_Details" />
+          <EntitySet Name="Claims_Diags" EntityType="Self.Claims_Diags" />
+          <EntitySet Name="Claims_Headers" EntityType="Self.Claims_Headers" />
+          <FunctionImport Name="sp_Get_ClaimDetails" ReturnType="Collection(ACDW_CLMS_SHCN_MSSPModel.sp_Get_ClaimDetails_Result)">
+            <Parameter Name="ClientMemberKey" Mode="In" Type="String" />
+            <Parameter Name="SeqClaimID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Get_ClaimDiags" ReturnType="Collection(ACDW_CLMS_SHCN_MSSPModel.sp_Get_ClaimDiags_Result)">
+            <Parameter Name="ClientMemberKey" Mode="In" Type="String" />
+            <Parameter Name="SeqClaimID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Get_ClaimHeader" ReturnType="Collection(ACDW_CLMS_SHCN_MSSPModel.sp_Get_ClaimHeader_Result)">
+            <Parameter Name="ClientMemberKey" Mode="In" Type="String" />
+            <Parameter Name="SeqClaimID" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_Get_ClaimPharmacy" ReturnType="Collection(ACDW_CLMS_SHCN_MSSPModel.sp_Get_ClaimPharmacy_Result)">
+            <Parameter Name="ClientMemberKey" Mode="In" Type="String" />
+            <Parameter Name="SeqClaimID" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="sp_Get_ClaimDetails_Result">
+          <Property Type="String" Name="ClaimID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MemberID" Nullable="true" MaxLength="50" />
+          <Property Type="Int16" Name="LineNumber" Nullable="true" />
+          <Property Type="String" Name="LineCode" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="SvcStartDate" Nullable="true" />
+          <Property Type="DateTime" Name="SvcEndDate" Nullable="true" />
+          <Property Type="String" Name="ProcCode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ModCode1" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="ModCode2" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="ModCode3" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="ModCode4" Nullable="true" MaxLength="20" />
+          <Property Type="Int16" Name="RevCode" Nullable="true" />
+          <Property Type="String" Name="POS1" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="POS2" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="POS3" Nullable="true" MaxLength="10" />
+          <Property Type="Decimal" Name="Qty" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="BilledAmt" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="PaidAmt" Nullable="true" Precision="19" />
+        </ComplexType>
+        <ComplexType Name="sp_Get_ClaimDiags_Result">
+          <Property Type="String" Name="ClaimID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MemberID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="IcdFlg" Nullable="true" MaxLength="2" />
+          <Property Type="Int16" Name="SeqNo" Nullable="true" />
+          <Property Type="String" Name="IcdCode" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="IcdDesc" Nullable="true" MaxLength="2000" />
+          <Property Type="String" Name="IcdPOA" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="sp_Get_ClaimHeader_Result">
+          <Property Type="String" Name="ClaimID" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="MemberID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CatOfSvc" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="SvcStartDate" Nullable="true" />
+          <Property Type="DateTime" Name="SvcEndDate" Nullable="true" />
+          <Property Type="String" Name="SvcProvName" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="VendorName" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="Drg" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="BillType" Nullable="true" MaxLength="20" />
+          <Property Type="DateTime" Name="AdmDate" Nullable="true" />
+          <Property Type="String" Name="AdmSrc" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="PtStatus" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="ClaimType" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="ProcessingStatus" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="ClaimStatus" Nullable="true" MaxLength="20" />
+          <Property Type="Decimal" Name="BilledAmt" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="PaidAmt" Nullable="true" Precision="19" />
+          <Property Type="Int32" Name="DischDispo" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_Get_ClaimPharmacy_Result">
+          <Property Type="String" Name="ClaimID" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="MemberID" Nullable="true" MaxLength="50" />
+          <Property Type="Int16" Name="LineNumber" Nullable="true" />
+          <Property Type="String" Name="LineCode" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="SvcStartDate" Nullable="true" />
+          <Property Type="Decimal" Name="Qty" Nullable="true" Precision="12" Scale="2" />
+          <Property Type="Decimal" Name="BilledAmt" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="PaidAmt" Nullable="true" Precision="19" />
+          <Property Type="String" Name="NDCCode" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="GenBrandInd" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SuppyDays" Nullable="true" MaxLength="50" />
+          <Property Type="Decimal" Name="DispFeeAmt" Nullable="true" Precision="19" />
+          <Property Type="Decimal" Name="IngredientAmt" Nullable="true" Precision="19" />
+          <Property Type="String" Name="FormInd" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="PrescriptionDateWritten" Nullable="true" />
+          <Property Type="DateTime" Name="PrescriptionDateFilled" Nullable="true" />
+          <Property Type="String" Name="PrescribingProvType" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="PrescribingProvID" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="BrandName" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DrugStrength" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="GPI" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="GPIDesc" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CtrlDrugInd" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CompoundCode" Nullable="true" MaxLength="50" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ACDW_CLMS_SHCN_MSSPModelStoreContainer" CdmEntityContainer="ACDW_CLMS_SHCN_MSSPEntities1">
+          <EntitySetMapping Name="Claims_Details">
+            <EntityTypeMapping TypeName="ACDW_CLMS_SHCN_MSSPModel.Claims_Details">
+              <MappingFragment StoreEntitySet="Claims_Details">
+                <ScalarProperty Name="ClaimsDetailsKey" ColumnName="ClaimsDetailsKey" />
+                <ScalarProperty Name="CLAIM_NUMBER" ColumnName="CLAIM_NUMBER" />
+                <ScalarProperty Name="SUBSCRIBER_ID" ColumnName="SUBSCRIBER_ID" />
+                <ScalarProperty Name="SEQ_CLAIM_ID" ColumnName="SEQ_CLAIM_ID" />
+                <ScalarProperty Name="LINE_NUMBER" ColumnName="LINE_NUMBER" />
+                <ScalarProperty Name="SUB_LINE_CODE" ColumnName="SUB_LINE_CODE" />
+                <ScalarProperty Name="DETAIL_SVC_DATE" ColumnName="DETAIL_SVC_DATE" />
+                <ScalarProperty Name="SVC_TO_DATE" ColumnName="SVC_TO_DATE" />
+                <ScalarProperty Name="PROCEDURE_CODE" ColumnName="PROCEDURE_CODE" />
+                <ScalarProperty Name="MODIFIER_CODE_1" ColumnName="MODIFIER_CODE_1" />
+                <ScalarProperty Name="MODIFIER_CODE_2" ColumnName="MODIFIER_CODE_2" />
+                <ScalarProperty Name="MODIFIER_CODE_3" ColumnName="MODIFIER_CODE_3" />
+                <ScalarProperty Name="MODIFIER_CODE_4" ColumnName="MODIFIER_CODE_4" />
+                <ScalarProperty Name="REVENUE_CODE" ColumnName="REVENUE_CODE" />
+                <ScalarProperty Name="PLACE_OF_SVC_CODE1" ColumnName="PLACE_OF_SVC_CODE1" />
+                <ScalarProperty Name="PLACE_OF_SVC_CODE2" ColumnName="PLACE_OF_SVC_CODE2" />
+                <ScalarProperty Name="PLACE_OF_SVC_CODE3" ColumnName="PLACE_OF_SVC_CODE3" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+                <ScalarProperty Name="BILLED_AMT" ColumnName="BILLED_AMT" />
+                <ScalarProperty Name="PAID_AMT" ColumnName="PAID_AMT" />
+                <ScalarProperty Name="NDC_CODE" ColumnName="NDC_CODE" />
+                <ScalarProperty Name="RX_GENERIC_BRAND_IND" ColumnName="RX_GENERIC_BRAND_IND" />
+                <ScalarProperty Name="RX_SUPPLY_DAYS" ColumnName="RX_SUPPLY_DAYS" />
+                <ScalarProperty Name="RX_DISPENSING_FEE_AMT" ColumnName="RX_DISPENSING_FEE_AMT" />
+                <ScalarProperty Name="RX_INGREDIENT_AMT" ColumnName="RX_INGREDIENT_AMT" />
+                <ScalarProperty Name="RX_FORMULARY_IND" ColumnName="RX_FORMULARY_IND" />
+                <ScalarProperty Name="RX_DATE_PRESCRIPTION_WRITTEN" ColumnName="RX_DATE_PRESCRIPTION_WRITTEN" />
+                <ScalarProperty Name="RX_DATE_PRESCRIPTION_FILLED" ColumnName="RX_DATE_PRESCRIPTION_FILLED" />
+                <ScalarProperty Name="PRESCRIBING_PROV_TYPE_ID" ColumnName="PRESCRIBING_PROV_TYPE_ID" />
+                <ScalarProperty Name="PRESCRIBING_PROV_ID" ColumnName="PRESCRIBING_PROV_ID" />
+                <ScalarProperty Name="BRAND_NAME" ColumnName="BRAND_NAME" />
+                <ScalarProperty Name="DRUG_STRENGTH_DESC" ColumnName="DRUG_STRENGTH_DESC" />
+                <ScalarProperty Name="GPI" ColumnName="GPI" />
+                <ScalarProperty Name="GPI_DESC" ColumnName="GPI_DESC" />
+                <ScalarProperty Name="CONTROLLED_DRUG_IND" ColumnName="CONTROLLED_DRUG_IND" />
+                <ScalarProperty Name="COMPOUND_CODE" ColumnName="COMPOUND_CODE" />
+                <ScalarProperty Name="SrcAdiTableName" ColumnName="SrcAdiTableName" />
+                <ScalarProperty Name="SrcAdiKey" ColumnName="SrcAdiKey" />
+                <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Claims_Diags">
+            <EntityTypeMapping TypeName="ACDW_CLMS_SHCN_MSSPModel.Claims_Diags">
+              <MappingFragment StoreEntitySet="Claims_Diags">
+                <ScalarProperty Name="URN" ColumnName="URN" />
+                <ScalarProperty Name="SEQ_CLAIM_ID" ColumnName="SEQ_CLAIM_ID" />
+                <ScalarProperty Name="SUBSCRIBER_ID" ColumnName="SUBSCRIBER_ID" />
+                <ScalarProperty Name="ICD_FLAG" ColumnName="ICD_FLAG" />
+                <ScalarProperty Name="diagNumber" ColumnName="diagNumber" />
+                <ScalarProperty Name="diagCode" ColumnName="diagCode" />
+                <ScalarProperty Name="diagCodeWithoutDot" ColumnName="diagCodeWithoutDot" />
+                <ScalarProperty Name="diagPoa" ColumnName="diagPoa" />
+                <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
+                <ScalarProperty Name="SrcAdiTableName" ColumnName="SrcAdiTableName" />
+                <ScalarProperty Name="SrcAdiKey" ColumnName="SrcAdiKey" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Claims_Headers">
+            <EntityTypeMapping TypeName="ACDW_CLMS_SHCN_MSSPModel.Claims_Headers">
+              <MappingFragment StoreEntitySet="Claims_Headers">
+                <ScalarProperty Name="SEQ_CLAIM_ID" ColumnName="SEQ_CLAIM_ID" />
+                <ScalarProperty Name="SUBSCRIBER_ID" ColumnName="SUBSCRIBER_ID" />
+                <ScalarProperty Name="CLAIM_NUMBER" ColumnName="CLAIM_NUMBER" />
+                <ScalarProperty Name="CATEGORY_OF_SVC" ColumnName="CATEGORY_OF_SVC" />
+                <ScalarProperty Name="PAT_CONTROL_NO" ColumnName="PAT_CONTROL_NO" />
+                <ScalarProperty Name="ICD_PRIM_DIAG" ColumnName="ICD_PRIM_DIAG" />
+                <ScalarProperty Name="PRIMARY_SVC_DATE" ColumnName="PRIMARY_SVC_DATE" />
+                <ScalarProperty Name="SVC_TO_DATE" ColumnName="SVC_TO_DATE" />
+                <ScalarProperty Name="CLAIM_THRU_DATE" ColumnName="CLAIM_THRU_DATE" />
+                <ScalarProperty Name="POST_DATE" ColumnName="POST_DATE" />
+                <ScalarProperty Name="CHECK_DATE" ColumnName="CHECK_DATE" />
+                <ScalarProperty Name="CHECK_NUMBER" ColumnName="CHECK_NUMBER" />
+                <ScalarProperty Name="DATE_RECEIVED" ColumnName="DATE_RECEIVED" />
+                <ScalarProperty Name="ADJUD_DATE" ColumnName="ADJUD_DATE" />
+                <ScalarProperty Name="CMS_CertificationNumber" ColumnName="CMS_CertificationNumber" />
+                <ScalarProperty Name="SVC_PROV_ID" ColumnName="SVC_PROV_ID" />
+                <ScalarProperty Name="SVC_PROV_FULL_NAME" ColumnName="SVC_PROV_FULL_NAME" />
+                <ScalarProperty Name="SVC_PROV_NPI" ColumnName="SVC_PROV_NPI" />
+                <ScalarProperty Name="PROV_SPEC" ColumnName="PROV_SPEC" />
+                <ScalarProperty Name="PROV_TYPE" ColumnName="PROV_TYPE" />
+                <ScalarProperty Name="PROVIDER_PAR_STAT" ColumnName="PROVIDER_PAR_STAT" />
+                <ScalarProperty Name="ATT_PROV_ID" ColumnName="ATT_PROV_ID" />
+                <ScalarProperty Name="ATT_PROV_FULL_NAME" ColumnName="ATT_PROV_FULL_NAME" />
+                <ScalarProperty Name="ATT_PROV_NPI" ColumnName="ATT_PROV_NPI" />
+                <ScalarProperty Name="REF_PROV_ID" ColumnName="REF_PROV_ID" />
+                <ScalarProperty Name="REF_PROV_FULL_NAME" ColumnName="REF_PROV_FULL_NAME" />
+                <ScalarProperty Name="VENDOR_ID" ColumnName="VENDOR_ID" />
+                <ScalarProperty Name="VEND_FULL_NAME" ColumnName="VEND_FULL_NAME" />
+                <ScalarProperty Name="IRS_TAX_ID" ColumnName="IRS_TAX_ID" />
+                <ScalarProperty Name="DRG_CODE" ColumnName="DRG_CODE" />
+                <ScalarProperty Name="BILL_TYPE" ColumnName="BILL_TYPE" />
+                <ScalarProperty Name="ADMISSION_DATE" ColumnName="ADMISSION_DATE" />
+                <ScalarProperty Name="AUTH_NUMBER" ColumnName="AUTH_NUMBER" />
+                <ScalarProperty Name="ADMIT_SOURCE_CODE" ColumnName="ADMIT_SOURCE_CODE" />
+                <ScalarProperty Name="ADMIT_HOUR" ColumnName="ADMIT_HOUR" />
+                <ScalarProperty Name="DISCHARGE_HOUR" ColumnName="DISCHARGE_HOUR" />
+                <ScalarProperty Name="PATIENT_STATUS" ColumnName="PATIENT_STATUS" />
+                <ScalarProperty Name="CLAIM_STATUS" ColumnName="CLAIM_STATUS" />
+                <ScalarProperty Name="PROCESSING_STATUS" ColumnName="PROCESSING_STATUS" />
+                <ScalarProperty Name="CLAIM_TYPE" ColumnName="CLAIM_TYPE" />
+                <ScalarProperty Name="TOTAL_BILLED_AMT" ColumnName="TOTAL_BILLED_AMT" />
+                <ScalarProperty Name="TOTAL_PAID_AMT" ColumnName="TOTAL_PAID_AMT" />
+                <ScalarProperty Name="SrcAdiTableName" ColumnName="SrcAdiTableName" />
+                <ScalarProperty Name="SrcAdiKey" ColumnName="SrcAdiKey" />
+                <ScalarProperty Name="LoadDate" ColumnName="LoadDate" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="CalcdTotalBilledAmount" ColumnName="CalcdTotalBilledAmount" />
+                <ScalarProperty Name="BENE_PTNT_STUS_CD" ColumnName="BENE_PTNT_STUS_CD" />
+                <ScalarProperty Name="DISCHARGE_DISPO" ColumnName="DISCHARGE_DISPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_Get_ClaimDetails" FunctionName="ACDW_CLMS_SHCN_MSSPModel.Store.sp_Get_ClaimDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ACDW_CLMS_SHCN_MSSPModel.sp_Get_ClaimDetails_Result">
+                <ScalarProperty Name="ClaimID" ColumnName="ClaimID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="LineNumber" ColumnName="LineNumber" />
+                <ScalarProperty Name="LineCode" ColumnName="LineCode" />
+                <ScalarProperty Name="SvcStartDate" ColumnName="SvcStartDate" />
+                <ScalarProperty Name="SvcEndDate" ColumnName="SvcEndDate" />
+                <ScalarProperty Name="ProcCode" ColumnName="ProcCode" />
+                <ScalarProperty Name="ModCode1" ColumnName="ModCode1" />
+                <ScalarProperty Name="ModCode2" ColumnName="ModCode2" />
+                <ScalarProperty Name="ModCode3" ColumnName="ModCode3" />
+                <ScalarProperty Name="ModCode4" ColumnName="ModCode4" />
+                <ScalarProperty Name="RevCode" ColumnName="RevCode" />
+                <ScalarProperty Name="POS1" ColumnName="POS1" />
+                <ScalarProperty Name="POS2" ColumnName="POS2" />
+                <ScalarProperty Name="POS3" ColumnName="POS3" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="BilledAmt" ColumnName="BilledAmt" />
+                <ScalarProperty Name="PaidAmt" ColumnName="PaidAmt" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_Get_ClaimDiags" FunctionName="ACDW_CLMS_SHCN_MSSPModel.Store.sp_Get_ClaimDiags">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ACDW_CLMS_SHCN_MSSPModel.sp_Get_ClaimDiags_Result">
+                <ScalarProperty Name="ClaimID" ColumnName="ClaimID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="IcdFlg" ColumnName="IcdFlg" />
+                <ScalarProperty Name="SeqNo" ColumnName="SeqNo" />
+                <ScalarProperty Name="IcdCode" ColumnName="IcdCode" />
+                <ScalarProperty Name="IcdDesc" ColumnName="IcdDesc" />
+                <ScalarProperty Name="IcdPOA" ColumnName="IcdPOA" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_Get_ClaimHeader" FunctionName="ACDW_CLMS_SHCN_MSSPModel.Store.sp_Get_ClaimHeader">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ACDW_CLMS_SHCN_MSSPModel.sp_Get_ClaimHeader_Result">
+                <ScalarProperty Name="ClaimID" ColumnName="ClaimID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="CatOfSvc" ColumnName="CatOfSvc" />
+                <ScalarProperty Name="SvcStartDate" ColumnName="SvcStartDate" />
+                <ScalarProperty Name="SvcEndDate" ColumnName="SvcEndDate" />
+                <ScalarProperty Name="SvcProvName" ColumnName="SvcProvName" />
+                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+                <ScalarProperty Name="Drg" ColumnName="Drg" />
+                <ScalarProperty Name="BillType" ColumnName="BillType" />
+                <ScalarProperty Name="AdmDate" ColumnName="AdmDate" />
+                <ScalarProperty Name="AdmSrc" ColumnName="AdmSrc" />
+                <ScalarProperty Name="PtStatus" ColumnName="PtStatus" />
+                <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+                <ScalarProperty Name="ProcessingStatus" ColumnName="ProcessingStatus" />
+                <ScalarProperty Name="ClaimStatus" ColumnName="ClaimStatus" />
+                <ScalarProperty Name="BilledAmt" ColumnName="BilledAmt" />
+                <ScalarProperty Name="PaidAmt" ColumnName="PaidAmt" />
+                <ScalarProperty Name="DischDispo" ColumnName="DischDispo" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_Get_ClaimPharmacy" FunctionName="ACDW_CLMS_SHCN_MSSPModel.Store.sp_Get_ClaimPharmacy">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ACDW_CLMS_SHCN_MSSPModel.sp_Get_ClaimPharmacy_Result">
+                <ScalarProperty Name="ClaimID" ColumnName="ClaimID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="LineNumber" ColumnName="LineNumber" />
+                <ScalarProperty Name="LineCode" ColumnName="LineCode" />
+                <ScalarProperty Name="SvcStartDate" ColumnName="SvcStartDate" />
+                <ScalarProperty Name="Qty" ColumnName="Qty" />
+                <ScalarProperty Name="BilledAmt" ColumnName="BilledAmt" />
+                <ScalarProperty Name="PaidAmt" ColumnName="PaidAmt" />
+                <ScalarProperty Name="NDCCode" ColumnName="NDCCode" />
+                <ScalarProperty Name="GenBrandInd" ColumnName="GenBrandInd" />
+                <ScalarProperty Name="SuppyDays" ColumnName="SuppyDays" />
+                <ScalarProperty Name="DispFeeAmt" ColumnName="DispFeeAmt" />
+                <ScalarProperty Name="IngredientAmt" ColumnName="IngredientAmt" />
+                <ScalarProperty Name="FormInd" ColumnName="FormInd" />
+                <ScalarProperty Name="PrescriptionDateWritten" ColumnName="PrescriptionDateWritten" />
+                <ScalarProperty Name="PrescriptionDateFilled" ColumnName="PrescriptionDateFilled" />
+                <ScalarProperty Name="PrescribingProvType" ColumnName="PrescribingProvType" />
+                <ScalarProperty Name="PrescribingProvID" ColumnName="PrescribingProvID" />
+                <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+                <ScalarProperty Name="DrugStrength" ColumnName="DrugStrength" />
+                <ScalarProperty Name="GPI" ColumnName="GPI" />
+                <ScalarProperty Name="GPIDesc" ColumnName="GPIDesc" />
+                <ScalarProperty Name="CtrlDrugInd" ColumnName="CtrlDrugInd" />
+                <ScalarProperty Name="CompoundCode" ColumnName="CompoundCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

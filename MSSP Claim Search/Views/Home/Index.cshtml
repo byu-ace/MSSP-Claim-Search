@@ -3,29 +3,62 @@
 }
 
 <div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h2>ACE Claim Search</h2>
+    <p class="lead">
+        A place to search claim related information. The input parameters are ClientMemberKey and SeqClaimID.
+        Both parameters could be zero, or assign value to either one of them.
+    </p>
+    <p></p>
 </div>
+
+<div class="panel">
+    <div class="panel-body">
+        @using (Html.BeginForm("Index", "Search", FormMethod.Get))
+        {
+            <div class="form-group">
+                <label>Input Client Member Key: </label>
+                @Html.TextBox("ClientMemberKey")
+                <label>Input Claim ID: </label>
+                @Html.TextBox("SeqClaimID ")
+            </div>
+            <div class="form-group">
+                <input id="SearchButton" type="submit" class="btn btn-primary" value="Search" />
+            </div>
+        }
+    </div>
+</div>
+
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Getting started</h2>
+        <h2>Claim Header Search</h2>
         <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
+            Theese are the columns returned from the query. ClaimID, MemberID, CatOfSvc, SvcStartDate, SvcEndDate,SvcProvName, VendorName
+            ,Drg, BillType, AdmDate, AdmSrc, PtStatus ClaimType, ProcessingStatus,ClaimStatus, BillAmt, PaidAmt, DischDispo
         </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
     </div>
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <h2>Claim Details Search</h2>
+        <p>
+            Theese are the columns returned from the query. ClaimID, MemberID, LineNumber, LineCode, SvcStartDate, SvcEndDate,ProcCode,
+            ModCode1, ModCode2, ModCode3,ModCode4, RevCode, POS1, POS2, POS3, Qty, BilledAmt and PaidAmt
+        </p>
+
     </div>
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        <h2>Claim Diags Search</h2>
+        <p>
+            Theese are the columns returned from the query. ClaimID, MemberID, Icdlg, SeqNo, IcdCode, IcdDesc and IcdPOA
+        </p>
+
+    </div>
+    <div class="col-md-4">
+        <h2>Claim Pharmacy search</h2>
+        <p>
+            Theese are the columns returned from the query. ClaimID, MemberID, LineNumber, LineCode, SvcStartDate, Qty, BillAmt, PaidAmt, NDCCode,
+            GenBrandInd, SuppyDays, DispFeeAmt,IngredientAmt, FormInd, PrescriptionDateWritten, PrescriptionDateFilled,PrescribingProvType
+            ,PrescribingProvID,BrandName, DrugStrength, GPI, GPIDesc and CtrlDrugInd
+        </p>
+
     </div>
 </div>

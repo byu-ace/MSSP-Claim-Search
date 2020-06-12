@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace MSSP_Claim_Search.Controllers
+namespace MSSPClaimSearch.Controllers
 {
     public class HomeController : Controller
     {
@@ -15,7 +15,7 @@ namespace MSSP_Claim_Search.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "ACE Claim Search Application. You can search claim related information" ;
 
             return View();
         }
@@ -24,6 +24,12 @@ namespace MSSP_Claim_Search.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+        public ActionResult ClaimSearch()
+        {
+            ViewBag.Messge = "Claim Search Page";
             return View();
         }
     }

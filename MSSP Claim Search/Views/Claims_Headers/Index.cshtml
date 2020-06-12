@@ -1,0 +1,352 @@
+﻿@model IEnumerable<MSSP_Claim_Search.Models.Claims_Headers>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="panel">
+    <div class="panel-body">
+        @using (Html.BeginForm("Index", "Search", FormMethod.Get))
+        {
+        <div class="form-group">
+            <label>Input Client Member Key and SeqClaimID to search for: </label>
+            
+            @Html.TextBox("search"), 
+
+        </div>
+
+            <div class="form-group">
+                <input id="SearchButton" type="submit" class="btn btn-primary" value="Search" />
+            </div>
+        }
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SUBSCRIBER_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLAIM_NUMBER)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CATEGORY_OF_SVC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PAT_CONTROL_NO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ICD_PRIM_DIAG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PRIMARY_SVC_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SVC_TO_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLAIM_THRU_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.POST_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CHECK_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CHECK_NUMBER)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATE_RECEIVED)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ADJUD_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CMS_CertificationNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SVC_PROV_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SVC_PROV_FULL_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SVC_PROV_NPI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PROV_SPEC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PROV_TYPE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PROVIDER_PAR_STAT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ATT_PROV_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ATT_PROV_FULL_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ATT_PROV_NPI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.REF_PROV_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.REF_PROV_FULL_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VENDOR_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VEND_FULL_NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IRS_TAX_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DRG_CODE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BILL_TYPE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ADMISSION_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AUTH_NUMBER)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ADMIT_SOURCE_CODE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ADMIT_HOUR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DISCHARGE_HOUR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PATIENT_STATUS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLAIM_STATUS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PROCESSING_STATUS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLAIM_TYPE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TOTAL_BILLED_AMT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TOTAL_PAID_AMT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SrcAdiTableName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SrcAdiKey)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoadDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastUpdatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastUpdatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CalcdTotalBilledAmount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BENE_PTNT_STUS_CD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DISCHARGE_DISPO)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SUBSCRIBER_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLAIM_NUMBER)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CATEGORY_OF_SVC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PAT_CONTROL_NO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ICD_PRIM_DIAG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PRIMARY_SVC_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SVC_TO_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLAIM_THRU_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.POST_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CHECK_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CHECK_NUMBER)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATE_RECEIVED)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADJUD_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CMS_CertificationNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SVC_PROV_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SVC_PROV_FULL_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SVC_PROV_NPI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PROV_SPEC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PROV_TYPE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PROVIDER_PAR_STAT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ATT_PROV_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ATT_PROV_FULL_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ATT_PROV_NPI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.REF_PROV_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.REF_PROV_FULL_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VENDOR_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VEND_FULL_NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IRS_TAX_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DRG_CODE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BILL_TYPE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADMISSION_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AUTH_NUMBER)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADMIT_SOURCE_CODE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ADMIT_HOUR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DISCHARGE_HOUR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PATIENT_STATUS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLAIM_STATUS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PROCESSING_STATUS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLAIM_TYPE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TOTAL_BILLED_AMT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TOTAL_PAID_AMT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SrcAdiTableName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SrcAdiKey)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoadDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastUpdatedDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastUpdatedBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CalcdTotalBilledAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BENE_PTNT_STUS_CD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DISCHARGE_DISPO)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SEQ_CLAIM_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SEQ_CLAIM_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SEQ_CLAIM_ID })
+        </td>
+    </tr>
+}
+
+</table>*@
